@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ballston Spa → Lansingburgh Traffic</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+    h1 { margin-bottom: 5px; }
+    .cam {
+      margin: 15px 0;
+      padding: 10px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    }
+    img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Ballston Spa → Lansingburgh Traffic Dashboard</h1>
+<p>Live Traffic Time: <strong id="eta">Loading...</strong></p>
+
+<hr>
+
+<h2>Live Cameras</h2>
+
+<div class="cam">
+  <h3>I-787 @ Troy–Menands Bridge</h3>
+  <img id="cam1" src="https://511ny.org/api/cameras/5530/preview">
+</div>
+
+<div class="cam">
+  <h3>I-87 @ Exit 9 (Halfmoon / Clifton Park)</h3>
+  <img id="cam2" src="https://511ny.org/api/cameras/4725/preview">
+</div>
+
+<div class="cam">
+  <h3>I-87 @ Exit 12 (Malta)</h3>
+  <img id="cam3" src="https://511ny.org/api/cameras/4709/preview">
+</div>
+
+<div class="cam">
+  <h3>I-87 @ Exit 6 (Colonie)</h3>
+  <img id="cam4" src="https://511ny.org/api/cameras/4722/preview">
+</div>
+
+<div class="cam">
+  <h3>I-87 @ Exit 7 (Latham)</h3>
+  <img id="cam5" src="https://511ny.org/api/cameras/4724/preview">
+</div>
+
+<script>
+const MAPBOX_TOKEN = "YOUR_MAPBOX_TOKEN_HERE";
+
+// Coordinates
+const origin = [-73.825184, 43.020931];  // Ballston Spa
+const destination = [-73.6740, 42.7634]; // Lansingburgh
+
+async function updateETA() {
+    const url = `https://api.mapbox.com/directions/v5/mapbox/driving/${origin.join(",")};${destination.join(",")}?overview=false&geometries=geojson&access_token=${MAPBOX_TOKEN}`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+    const seconds = data.routes[0].duration;
+    const minutes = Math.round(seconds / 60);
+
+    document.getElementById("eta").innerText = minutes + " minutes (live)";
+}
+
+// Refresh cameras every 10 seconds
+setInterval(() => {
+  document.querySelectorAll("img").forEach(img => {
+    img.src = img.src.split("?")[0] + "?t=" + Date.now();
+  });
+}, 10000);
+
+// Refresh travel time every 2 minutes
+updateETA();
+setInterval(updateETA, 120000);
+</script>
+
+</body>
+</html>
