@@ -1,46 +1,157 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ballston Spa → Lansingburgh Traffic</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume - Conor Farley</title>
   <style>
-    body { font-family: Arial; padding: 20px; background: #f5f5f5; }
-    h1 { margin-bottom: 5px; }
-    .cam { margin: 15px 0; padding: 10px; background: white; border-radius: 8px; }
-    img { width: 100%; max-width: 600px; border-radius: 6px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    h1, h2, h3 {
+      color: #007bff;
+    }
+
+    .experience-item > details > summary {
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      margin: 10px 0;
+    }
+
+    .experience-item > details > ul {
+      background-color: #2e2e2e;
+      border-left: 4px solid #007bff;
+      padding: 10px;
+      margin: 0;
+    }
+
+    .experience-item > details > ul > li {
+      margin-bottom: 6px;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #555;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+
+    .contact-form button {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
 
-<h1>Traffic Dashboard</h1>
-<p>Estimated Travel Time: <strong>~25 minutes</strong></p>
+  <h1>Conor Farley</h1>
+  <p>Contact: conor.farley@example.com | Phone: (555) 123-4567</p>
 
-<hr>
+  <h2>Skills</h2>
+  <ul>
+    <li>Project Management</li>
+    <li>IT Infrastructure</li>
+    <li>Network Security</li>
+    <li>Cloud Computing</li>
+    <li>Cross-Functional Collaboration</li>
+    <li>Communications & Cybersecurity</li>
+    <li>Business Analytics</li>
+    <li>Leadership & Team Management</li>
+    <li>Microsoft Teams & Collaboration Tools</li>
+    <li>WLAN & Network Design</li>
+  </ul>
 
-<h2>Live Cameras (no API key)</h2>
+  <h2>Experience</h2>
+  <div class="experience-item">
+    <details>
+      <summary>
+        Datacenter Integration Services, Microsoft, Remote, USA – Technical Program Manager, IT Platform Quality | October 2023 - Present
+      </summary>
+      <ul>
+        <li>Lead global readiness programs for IT platform quality across multiple regions.</li>
+        <li>Collaborate with cross-functional teams (engineering, product, security) to ensure seamless deployment of mission-critical systems.</li>
+        <li>Improved system reliability by 25% through process optimization and performance monitoring.</li>
+      </ul>
+    </details>
+  </div>
 
-<div class="cam">
-  <h3>I-787 @ Troy–Menands Bridge</h3>
-  <img src="https://511ny.org/map/camera/preview/5530.jpg" id="cam1">
-</div>
+  <div class="experience-item">
+    <details>
+      <summary>
+        U.S. Army – Signal Officer, Battalion Operations Officer | February 2020 - May 2020
+      </summary>
+      <ul>
+        <li>Coordinated operational tasking and planning for staff sections at a corps-level headquarters.</li>
+        <li>Implemented VPN and Microsoft Teams infrastructure enabling remote operations during the COVID-19 transition.</li>
+        <li>Streamlined task management and reporting processes across multiple command levels.</li>
+      </ul>
+    </details>
+  </div>
 
-<div class="cam">
-  <h3>I-87 @ Exit 9 (Halfmoon / Clifton Park)</h3>
-  <img src="https://511ny.org/map/camera/preview/4725.jpg" id="cam2">
-</div>
+  <div class="experience-item">
+    <details>
+      <summary>
+        First Corps Headquarters and Headquarters Company, JBLM, WA – Battalion Operations Officer | February 2020 - May 2020
+      </summary>
+      <ul>
+        <li>Coordinated operational tasking and planning for staff sections at a corps-level headquarters.</li>
+        <li>Implemented VPN and Microsoft Teams infrastructure enabling remote operations during the COVID-19 transition.</li>
+        <li>Streamlined task management and reporting processes across multiple command levels.</li>
+      </ul>
+    </details>
+  </div>
 
-<div class="cam">
-  <h3>I-87 @ Exit 12 (Malta)</h3>
-  <img src="https://511ny.org/map/camera/preview/4709.jpg" id="cam3">
-</div>
+  <div class="experience-item">
+    <details>
+      <summary>
+        First Corps Headquarters and Headquarters Company, JBLM, WA – Battalion Operations Officer | February 2020 - May 2020
+      </summary>
+      <ul>
+        <li>Coordinated operational tasking and planning for staff sections at a corps-level headquarters.</li>
+        <li>Implemented VPN and Microsoft Teams infrastructure enabling remote operations during the COVID-19 transition.</li>
+        <li>Streamlined task management and reporting processes across multiple command levels.</li>
+      </ul>
+    </details>
+  </div>
 
-<script>
-  // Refresh camera images every 10 seconds
-  setInterval(() => {
-    document.querySelectorAll("img").forEach(img => {
-      img.src = img.src.split('?')[0] + "?t=" + Date.now();
-    });
-  }, 10000);
-</script>
+  <h2>Education & Training</h2>
+  <ul>
+    <li>St. Bonaventure University, St. Bonaventure, NY – B.B.A. in Finance | Class of 2019 (Magna Cum Laude), Minor in Economics</li>
+    <li>University of Louisiana, Lafayette, LA – M.B.A. with a concentration in Project Management | Class of 2025 (4.0 GPA)</li>
+    <li>University of Iowa, Iowa City, IA – M.S. in Business Analytics | Class of 2027 (Projected Graduation)</li>
+    <li>U.S. Army Cyber Center of Excellence, Ft. Gordon, GA – Signal Officer Basic Officer Leader Course | Graduated in 2020</li>
+    <li>U.S. Army Space and Missile Defense School, JBLM, WA – Army Space Cadre Basic Course | Graduated in 2021</li>
+  </ul>
+
+  <section class="contact-form">
+    <h2>Contact Me</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
 </body>
 </html>
